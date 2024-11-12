@@ -28,105 +28,190 @@ if ($conn->connect_error) {
 // Check if the form is submitted
 if (isset($_POST['submit'])) {
     // Collect and sanitize form data
-    $firstname = mysqli_real_escape_string($conn, $_POST['firstname']);
-    $middlename = mysqli_real_escape_string($conn, $_POST['middlename']);
-    $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $phonenumber = mysqli_real_escape_string($conn, $_POST['phonenumber']);
-    $sex = mysqli_real_escape_string($conn, $_POST['sex']);
-    $maritalstatus = mysqli_real_escape_string($conn, $_POST['maritalstatus']);
-    $dob = mysqli_real_escape_string($conn, $_POST['dob']);
-    $age = mysqli_real_escape_string($conn, $_POST['age']);
-    $address = mysqli_real_escape_string($conn, $_POST['address']);
-    $city = mysqli_real_escape_string($conn, $_POST['city']);
-    $state = mysqli_real_escape_string($conn, $_POST['state']);
-    $country = mysqli_real_escape_string($conn, $_POST['country']);
-    $postalcode = mysqli_real_escape_string($conn, $_POST['postalcode']);
-    $program = mysqli_real_escape_string($conn, $_POST['program']);
-    $specialization = mysqli_real_escape_string($conn, $_POST['specialization']);
-    $passport = $_FILES['passport'];
-    $qualification = mysqli_real_escape_string($conn, $_POST['qualification']);
-    
-    // Check if file is uploaded and valid (for example, PDF resume)
-    if (isset($_FILES['resume']) && $_FILES['resume']['error'] == 0 && $_FILES['resume']['type'] == 'application/pdf') {
-        // Read the resume file into a variable
-        $resumeData = file_get_contents($_FILES['resume']['tmp_name']);
+    $firstname = mysqli_real_escape_string($conn, $_POST['firstname'] ?? '');
+    $middlename = mysqli_real_escape_string($conn, $_POST['middlename'] ?? '');
+    $lastname = mysqli_real_escape_string($conn, $_POST['lastname'] ?? '');
+    $email = mysqli_real_escape_string($conn, $_POST['email'] ?? '');
+    $phonenumber = mysqli_real_escape_string($conn, $_POST['phonenumber'] ?? '');
+    $sex = mysqli_real_escape_string($conn, $_POST['sex'] ?? '');
+    $maritalstatus = mysqli_real_escape_string($conn, $_POST['maritalstatus'] ?? '');
+    $dob = mysqli_real_escape_string($conn, $_POST['dob'] ?? '');
+    $age = mysqli_real_escape_string($conn, $_POST['age'] ?? '');
+    $address = mysqli_real_escape_string($conn, $_POST['address'] ?? '');
+    $city = mysqli_real_escape_string($conn, $_POST['city'] ?? '');
+    $state = mysqli_real_escape_string($conn, $_POST['state'] ?? '');
+    $country = mysqli_real_escape_string($conn, $_POST['country'] ?? '');
+    $postalcode = mysqli_real_escape_string($conn, $_POST['postalcode'] ?? '');
+    $program = mysqli_real_escape_string($conn, $_POST['program'] ?? '');
+    $qualificationsText = mysqli_real_escape_string($conn, $_POST['qualifications'] ?? '');
 
-        // Prepare the SQL query to insert data into the 'application' table
-        $sql = "INSERT INTO application (firstname, middlename, lastname, email, phonenumber, sex, maritalstatus, dob, age, address, city, state, country, postalcode, program, specialization, passport, qualifications) 
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    // Capture program-specific data
+    $certification = $bachelors = $masters = $doctors = '';
+    $bThSpecialization = $bMinSpecialization = $bDivSpecialization = '';
+    $mThSpecialization = $mMinSpecialization = $mDivSpecialization = '';
+    $dThSpecialization = $dMinSpecialization = $dDivSpecialization = '';
 
-        // Prepare and bind the statement
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ssssssssssssssssss", $firstname, $middlename, $lastname, $email, $phonenumber, $sex, $maritalstatus, $dob, $age, $address, $city, $state, $country, $postalcode, $program, $specialization, $passport, $qualification);
-
-        // Execute the query
-        if ($stmt->execute()) {
-            // Send a confirmation email with PHPMailer
-            $mail = new PHPMailer(true);
-
-            try {
-                // SMTP server settings
-                $mail->isSMTP();
-                $mail->Host = $emailHost;
-                $mail->SMTPAuth = true;
-                $mail->Username = $emailUsername;
-                $mail->Password = $emailPassword;
-                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-                $mail->Port = 587;
-
-                // Set sender and recipient information
-                $mail->setFrom($emailUsername, 'SpiritBrood');
-                $mail->addAddress($emailUsername);
-
-                // Attach the resume as a PDF file
-                $mail->addStringAttachment($resumeData, 'Resume.pdf');
-
-                // Email content
-                $// Email content
-$mail->isHTML(true);
-$mail->Subject = "New Application Submission: $lastname $firstname";
-$mail->Body = "
-    <h3>A new application submission has been received:</h3>
-    <strong>Surname:</strong> $lastname<br>
-    <strong>First Name:</strong> $firstname<br>
-    <strong>Middle Name:</strong> $middlename<br>
-    <strong>Email:</strong> $email<br>
-    <strong>Phone Number:</strong> $phonenumber<br>
-    <strong>Sex:</strong> $sex<br>
-    <strong>Marital Status:</strong> $maritalstatus<br>
-    <strong>Date of Birth:</strong> $dob<br>
-    <strong>Age:</strong> $age<br>
-    <strong>Address:</strong> $address<br>
-    <strong>City:</strong> $city<br>
-    <strong>State:</strong> $state<br>
-    <strong>Country:</strong> $country<br>
-    <strong>Postal Code:</strong> $postalcode<br>
-    <strong>Program:</strong> $program<br>
-    <strong>Specialization:</strong> $specialization<br>
-    <strong>Qualification:</strong> $qualification<br>
-    <strong>Passport:</strong> <a href='$passport'>View Passport</a><br>
-";
-
-
-                // Send the email
-                $mail->send();
-                echo '<script type="text/javascript">
-                            alert("Your Application has been successfully submitted. A confirmation email has been sent to the registrar.");
-                            window.location.href = "https://spiritbrood.org"; // Redirect to a thank you page or stay on the current page
-                          </script>';
-            } catch (Exception $e) {
-                echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-            }
-        } else {
-            echo "Error submitting data: " . $stmt->error;
+    if ($program == 'Certification') {
+        $certification = mysqli_real_escape_string($conn, $_POST['certification'] ?? '');
+    } elseif ($program == 'Bachelors') {
+        $bachelors = mysqli_real_escape_string($conn, $_POST['bachelors'] ?? '');
+        if ($bachelors == 'BTh') {
+            $bThSpecialization = mysqli_real_escape_string($conn, $_POST['bThSpecialization'] ?? '');
+        } elseif ($bachelors == 'BMin') {
+            $bMinSpecialization = mysqli_real_escape_string($conn, $_POST['bMinSpecialization'] ?? '');
+        } elseif ($bachelors == 'BDiv') {
+            $bDivSpecialization = mysqli_real_escape_string($conn, $_POST['bDivSpecialization'] ?? '');
         }
+    } elseif ($program == 'Masters') {
+        $masters = mysqli_real_escape_string($conn, $_POST['masters'] ?? '');
+        if ($masters == 'MTh') {
+            $mThSpecialization = mysqli_real_escape_string($conn, $_POST['mThSpecialization'] ?? '');
+        } elseif ($masters == 'MMin') {
+            $mMinSpecialization = mysqli_real_escape_string($conn, $_POST['mMinSpecialization'] ?? '');
+        } elseif ($masters == 'MDiv') {
+            $mDivSpecialization = mysqli_real_escape_string($conn, $_POST['mDivSpecialization'] ?? '');
+        }
+    } elseif ($program == 'Doctorate') {
+        $doctors = mysqli_real_escape_string($conn, $_POST['doctors'] ?? '');
+        if ($doctors == 'DTh') {
+            $dThSpecialization = mysqli_real_escape_string($conn, $_POST['dThSpecialization'] ?? '');
+        } elseif ($doctors == 'DMin') {
+            $dMinSpecialization = mysqli_real_escape_string($conn, $_POST['dMinSpecialization'] ?? '');
+        } elseif ($doctors == 'DDiv') {
+            $dDivSpecialization = mysqli_real_escape_string($conn, $_POST['dDivSpecialization'] ?? '');
+        }
+    }
 
-        // Close the statement and connection
-        $stmt->close();
-        $conn->close();
+    // Handle file uploads
+    $passportPath = '';
+    if (isset($_FILES['passport']) && $_FILES['passport']['error'] === UPLOAD_ERR_OK) {
+        $passportPath = 'uploads/' . basename($_FILES['passport']['name']);
+        if (!move_uploaded_file($_FILES['passport']['tmp_name'], $passportPath)) {
+            echo "Error moving passport file.";
+            exit();
+        }
     } else {
-        echo "Please upload a PDF file as your resume.";
+        echo "Error uploading passport file. Error Code: " . ($_FILES['passport']['error'] ?? 'No file uploaded');
+        exit();
+    }
+
+    // Handle qualifications files
+    $qualificationsPaths = [];
+    if (isset($_FILES['qualifications']) && is_array($_FILES['qualifications']['name'])) {
+        foreach ($_FILES['qualifications']['name'] as $key => $name) {
+            if ($_FILES['qualifications']['error'][$key] === UPLOAD_ERR_OK) {
+                $qualificationsPath = 'uploads/' . basename($name);
+                if (move_uploaded_file($_FILES['qualifications']['tmp_name'][$key], $qualificationsPath)) {
+                    $qualificationsPaths[] = $qualificationsPath;
+                } else {
+                    echo "Error moving qualification file: $name";
+                    exit();
+                }
+            } else {
+                echo "Error uploading qualification file: " . $_FILES['qualifications']['error'][$key];
+                exit();
+            }
+        }
+    }
+
+    // Convert the qualifications paths to a string if needed
+    $qualificationsString = implode(", ", $qualificationsPaths);
+
+    // Prepare the SQL query
+    $stmt = $conn->prepare("INSERT INTO application 
+        (firstname, middlename, lastname, email, phonenumber, sex, maritalstatus, dob, age, address, city, state, country, postalcode, program, certification, bachelors, bThSpecialization, bMinSpecialization, bDivSpecialization, masters, mThSpecialization, mMinSpecialization, mDivSpecialization, doctors, dThSpecialization, dMinSpecialization, dDivSpecialization, qualificationsText, passport_path, qualifications_paths) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+    $stmt->bind_param("sssssssssssssssssssssssssssssss", 
+        $firstname, $middlename, $lastname, $email, $phonenumber, $sex, $maritalstatus, $dob, $age, $address, $city, $state, $country, $postalcode, $program, $certification, $bachelors, $bThSpecialization, $bMinSpecialization, $bDivSpecialization, $masters, $mThSpecialization, $mMinSpecialization, $mDivSpecialization, $doctors, $dThSpecialization, $dMinSpecialization, $dDivSpecialization, $qualificationsText, $passportPath, $qualificationsString);
+
+    if ($stmt->execute()) {
+        echo "Application submitted successfully.";
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+    $stmt->close();
+
+    // Send confirmation email to applicant
+    $mail = new PHPMailer(true);
+    try {
+        $mail->isSMTP();
+        $mail->Host = $emailHost;
+        $mail->SMTPAuth = true;
+        $mail->Username = $emailUsername;
+        $mail->Password = $emailPassword;
+        $mail->SMTPSecure = 'tls';
+        $mail->Port = 587;
+
+        $mail->setFrom($emailUsername, 'Registrar');
+        $mail->addAddress($email, "$firstname $lastname");
+
+        $mail->isHTML(true);
+        $mail->Subject = 'Spirit Brood Application Confirmation';
+        $mail->Body = 'Thank you for your application. We will review your application and get back to you shortly.';
+
+        $mail->send();
+        echo '<script type="text/javascript">
+                alert("Your application has been successfully submitted. A confirmation email has been sent to your email.");
+                window.location.href = "https://spiritbrood.org";
+              </script>';
+    } catch (Exception $e) {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    }
+    
+    // Send email to the website owner with full application details
+$adminMail = new PHPMailer(true);
+try {
+    $adminMail->isSMTP();
+    $adminMail->Host = $emailHost;
+    $adminMail->SMTPAuth = true;
+    $adminMail->Username = $emailUsername;
+    $adminMail->Password = $emailPassword;
+    $adminMail->SMTPSecure = 'tls';
+    $adminMail->Port = 587;
+
+    $adminMail->setFrom($emailUsername, 'Registrar');
+    $adminMail->addAddress('admissions@spiritbrood.org');
+
+    $adminMail->isHTML(true);
+    $adminMail->Subject = 'New Application Submitted';
+    $adminMail->Body = "
+        <h3>New Application Details</h3>
+        <p><strong>First Name:</strong> $firstname</p>
+        <p><strong>Middle Name:</strong> $middlename</p>
+        <p><strong>Last Name:</strong> $lastname</p>
+        <p><strong>Email:</strong> $email</p>
+        <p><strong>Phone Number:</strong> $phonenumber</p>
+        <p><strong>Sex:</strong> $sex</p>
+        <p><strong>Marital Status:</strong> $maritalstatus</p>
+        <p><strong>Date of Birth:</strong> $dob</p>
+        <p><strong>Age:</strong> $age</p>
+        <p><strong>Address:</strong> $address</p>
+        <p><strong>City:</strong> $city</p>
+        <p><strong>State:</strong> $state</p>
+        <p><strong>Country:</strong> $country</p>
+        <p><strong>Postal Code:</strong> $postalcode</p>
+        <p><strong>Program:</strong> $program</p>
+        <p><strong>Certification:</strong> $certification</p>
+        <p><strong>Bachelor's Degree:</strong> $bachelors</p>
+        <p><strong>BTh Specialization:</strong> $bThSpecialization</p>
+        <p><strong>BMin Specialization:</strong> $bMinSpecialization</p>
+        <p><strong>BDiv Specialization:</strong> $bDivSpecialization</p>
+        <p><strong>Master's Degree:</strong> $masters</p>
+        <p><strong>MTh Specialization:</strong> $mThSpecialization</p>
+        <p><strong>MMin Specialization:</strong> $mMinSpecialization</p>
+        <p><strong>MDiv Specialization:</strong> $mDivSpecialization</p>
+        <p><strong>Doctorate Degree:</strong> $doctors</p>
+        <p><strong>DTh Specialization:</strong> $dThSpecialization</p>
+        <p><strong>DMin Specialization:</strong> $dMinSpecialization</p>
+        <p><strong>DDiv Specialization:</strong> $dDivSpecialization</p>
+        <p><strong>Qualifications:</strong> $qualificationsText</p>
+        <p><strong>Passport:</strong> $passportPath</p>
+        <p><strong>Qualifications Files:</strong> $qualificationsString</p>
+    ";
+        $adminMail->send();
+    } catch (Exception $e) {
+        echo "Error sending email to admin: {$adminMail->ErrorInfo}";
     }
 }
 ?>

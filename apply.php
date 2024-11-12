@@ -50,9 +50,9 @@
                           <hr>
                           <div class="container" id="contact-info-form">
     <h2>New Student Enrollment Form</h2>
-    <form action="apply-action.php" method="POST">
+    <form action="apply-action.php" method="post" enctype="multipart/form-data">
     <div class="row">
-        <div class="col-md-4">
+         <div class="col-md-4">
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="First Name*" name="firstname" required>
             </div>
@@ -109,322 +109,335 @@
                 <input type="date" class="form-control" id="dob" name="dob" required>
             </div>
         </div>
-
-        <div class="col-md-3">
-            <div class="form-group">
-                <label for="age">Age*</label>
-                <input type="number" class="form-control" id="age" name="age" required>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-9">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Address*" name="address" required>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="City*" name="city" required>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="State*" name="state" required>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Country*" name="country" required>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Postal / Zip Code*" name="postalcode" required>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <h3>What Program are you applying for?</h3>
+           <div class="col-md-3">
         <div class="form-group">
-            <select class="form-control" id="programSelect" name="program" required>
-                <option value="" disabled selected>Select Program Level*</option>
-                <option value="Certification">Certification/License</option>
-                <option value="Bachelors">Bachelor’s Degree</option>
-                <option value="Masters">Master’s Degree</option>
-                <option value="Doctorate">Doctorate Degree</option>
-            </select>
+            <label for="age">Age*</label>
+            <input type="number" class="form-control" id="age" name="age" required>
         </div>
-
-        <!-- Certification Options -->
-        <div class="form-group" id="certificationOptions" style="display: none;">
-            <label>Select Certification Program</label>
-            <select class="form-control" name="certification">
-                <option>Certified/Licensed Christian Administrator</option>
-                <option>Certified/Licensed Christian Caregiver</option>
-                <option>Certified/Licensed Christian Counselor</option>
-                <option>Certified/Licensed Christian Life Coach</option>
-                <option>Certified/Licensed Christian Mediator</option>
-                <option>Certified/Licensed Christian Philosopher/Analyst</option>
-                <option>Certified/Licensed Corporate Chaplain</option>
-            </select>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-9">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Address*" name="address" required>
         </div>
-
-        <!-- Bachelor's Degree Options -->
-        <div class="form-group" id="bachelorsOptions" style="display: none;">
-            <label>Select Bachelor’s Degree Program</label>
-            <select class="form-control" id="bachelorSelect" name="bachelors">
-                <option value="" disabled selected>Select Bachelor's Degree Program</option>
-                <option value="BTh">Bachelor of Theology (B.Th.)</option>
-                <option value="BMin">Bachelor of Ministry (B.Min.)</option>
-                <option value="BDiv">Bachelor of Divinity (B.Div.)</option>
-            </select>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="City*" name="city" required>
         </div>
-
-        <!-- Bachelor's Degree Specializations -->
-        <div class="form-group" id="bThOptions" style="display: none;">
-            <label>Select Bachelor of Theology Specialization</label>
-            <select class="form-control" name="bThSpecialization">
-                <option>B.Th. Biblical Studies</option>
-                <option>B.Th. Christian Apologetics</option>
-                <option>B.Th. Christian Counseling</option>
-                <option>B.Th. Christian Philosophy</option>
-                <option>B.Th. Ecumenical Theology</option>
-                <option>B.Th. Systematic Theology</option>
-            </select>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="State*" name="state" required>
         </div>
-
-        <div class="form-group" id="bMinOptions" style="display: none;">
-            <label>Select Bachelor of Ministry Specialization</label>
-            <select class="form-control" name="bMinSpecialization">
-                <option>B.Min. Christian Leadership</option>
-                <option>B.Min. Church Administration</option>
-                <option>B.Min. Educational Management</option>
-                <option>B.Min. Evangelism and Missions</option>
-                <option>B.Min. Music and Worship</option>
-                <option>B.Min. Pastoring and Discipleship</option>
-                <option>B.Min. Youth Ministry</option>
-            </select>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Country*" name="country" required>
         </div>
-
-        <div class="form-group" id="bDivOptions" style="display: none;">
-            <label>Select Bachelor of Divinity Specialization</label>
-            <select class="form-control" name="bDivSpecialization">
-                <option>B.Div. Church History</option>
-                <option>B.Div. Community Development</option>
-                <option>B.Div. Corporate Chaplaincy</option>
-                <option>B.Div. Human Resource Management</option>
-                <option>B.Div. Religious Studies</option>
-                <option>B.Div. Restorative Justice</option>
-            </select>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Postal / Zip Code*" name="postalcode" required>
         </div>
+    </div>
+</div>
+<div class="row">
+    <h3>What Program are you applying for?</h3>
+    <div class="form-group">
+        <select class="form-control" id="programSelect" name="program" required>
+            <option value="" disabled selected>Select Program Level*</option>
+            <option value="Certification">Certification/License</option>
+            <option value="Bachelors">Bachelor’s Degree</option>
+            <option value="Masters">Master’s Degree</option>
+            <option value="Doctorate">Doctorate Degree</option>
+        </select>
+    </div>
 
-        <!-- Master's Degree Options -->
-        <div class="form-group" id="mastersOptions" style="display: none;">
-            <label>Select Master’s Degree Program</label>
-            <select class="form-control" id="masterSelect" name="masters">
-                <option value="" disabled selected>Select Master's Degree Program</option>
-                <option value="MTh">Master of Theology (M.Th.)</option>
-                <option value="MMin">Master of Ministry (M.Min.)</option>
-                <option value="MDiv">Master of Divinity (M.Div.)</option>
-            </select>
-        </div>
+    <!-- Certification Options -->
+    <div class="form-group" id="certificationOptions" style="display: none;">
+        <label>Select Certification Program</label>
+        <select class="form-control" name="certification">
+            <option>Certified/Licensed Christian Administrator</option>
+            <option>Certified/Licensed Christian Caregiver</option>
+            <option>Certified/Licensed Christian Counselor</option>
+            <option>Certified/Licensed Christian Life Coach</option>
+            <option>Certified/Licensed Christian Mediator</option>
+            <option>Certified/Licensed Christian Philosopher/Analyst</option>
+            <option>Certified/Licensed Corporate Chaplain</option>
+        </select>
+    </div>
 
-        <!-- Master's Degree Specializations -->
-        <div class="form-group" id="mThOptions" style="display: none;">
-            <label>Select Master of Theology Specialization</label>
-            <select class="form-control" name="mThSpecialization">
-                <option>M.Th. Christian Apologetics</option>
-                <option>M.Th. Christian Counseling</option>
-                <option>M.Th. Historical Theology</option>
-                <option>M.Th. Philosophy and Theological Studies</option>
-            </select>
-        </div>
-        <div class="form-group" id="mMinOptions" style="display: none;">
-            <label>Select Master of Ministry Specialization</label>
-            <select class="form-control" name="mMinSpecialization">
-                <option>M.Min. Educational Management</option>
-                <option>M.Min. Pastoral Ministry</option>
-                <option>M.Min. Strategic Leadership</option>
-                <option>M.Min. Worship and Creative Arts</option>
-                <option>M.Min. Youth and Family Ministry</option>
-            </select>
-        </div>
+    <!-- Bachelor's Degree Options -->
+    <div class="form-group" id="bachelorsOptions" style="display: none;">
+        <label>Select Bachelor’s Degree Program</label>
+        <select class="form-control" id="bachelorSelect" name="bachelors">
+            <option value="" disabled selected>Select Bachelor's Degree Program</option>
+            <option value="BTh">Bachelor of Theology (B.Th.)</option>
+            <option value="BMin">Bachelor of Ministry (B.Min.)</option>
+            <option value="BDiv">Bachelor of Divinity (B.Div.)</option>
+        </select>
+    </div>
 
-        <div class="form-group" id="mDivOptions" style="display: none;">
-            <label>Select Master of Divinity Specialization</label>
-            <select class="form-control" name="mDivSpecialization">
-                <option>M.Div. Community Development and Missions</option>
-                <option>M.Div. Comparative Religion</option>
-                <option>M.Div. Corporate Management</option>
-                <option>M.Div. New Testament Studies</option>
-                <option>M.Div. Old Testament Studies</option>
-                <option>M.Div. Restorative Justice</option>
-            </select>
-        </div>
+    <!-- Bachelor's Degree Specializations -->
+    <div class="form-group" id="bThOptions" style="display: none;">
+        <label>Select Bachelor of Theology Specialization</label>
+        <select class="form-control" name="bThSpecialization">
+            <option>B.Th. Biblical Studies</option>
+            <option>B.Th. Christian Apologetics</option>
+            <option>B.Th. Christian Counseling</option>
+            <option>B.Th. Christian Philosophy</option>
+            <option>B.Th. Ecumenical Theology</option>
+            <option>B.Th. Systematic Theology</option>
+        </select>
+    </div>
 
+    <div class="form-group" id="bMinOptions" style="display: none;">
+        <label>Select Bachelor of Ministry Specialization</label>
+        <select class="form-control" name="bMinSpecialization">
+            <option>B.Min. Christian Leadership</option>
+            <option>B.Min. Church Administration</option>
+            <option>B.Min. Educational Management</option>
+            <option>B.Min. Evangelism and Missions</option>
+            <option>B.Min. Music and Worship</option>
+            <option>B.Min. Pastoring and Discipleship</option>
+            <option>B.Min. Youth Ministry</option>
+        </select>
+    </div>
 
+    <div class="form-group" id="bDivOptions" style="display: none;">
+        <label>Select Bachelor of Divinity Specialization</label>
+        <select class="form-control" name="bDivSpecialization">
+            <option>B.Div. Church History</option>
+            <option>B.Div. Community Development</option>
+            <option>B.Div. Corporate Chaplaincy</option>
+            <option>B.Div. Human Resource Management</option>
+            <option>B.Div. Religious Studies</option>
+            <option>B.Div. Restorative Justice</option>
+        </select>
+    </div>
 
+    <!-- Master's Degree Options -->
+    <div class="form-group" id="mastersOptions" style="display: none;">
+        <label>Select Master’s Degree Program</label>
+        <select class="form-control" id="masterSelect" name="masters">
+            <option value="" disabled selected>Select Master's Degree Program</option>
+            <option value="MTh">Master of Theology (M.Th.)</option>
+            <option value="MMin">Master of Ministry (M.Min.)</option>
+            <option value="MDiv">Master of Divinity (M.Div.)</option>
+        </select>
+    </div>
 
-        <!-- DOCTORATE DEGREE -->
+    <!-- Master's Degree Specializations -->
+    <div class="form-group" id="mThOptions" style="display: none;">
+        <label>Select Master of Theology Specialization</label>
+        <select class="form-control" name="mThSpecialization">
+            <option>M.Th. Christian Apologetics</option>
+            <option>M.Th. Christian Counseling</option>
+            <option>M.Th. Historical Theology</option>
+            <option>M.Th. Philosophy and Theological Studies</option>
+        </select>
+    </div>
+    <div class="form-group" id="mMinOptions" style="display: none;">
+        <label>Select Master of Ministry Specialization</label>
+        <select class="form-control" name="mMinSpecialization">
+            <option>M.Min. Educational Management</option>
+            <option>M.Min. Pastoral Ministry</option>
+            <option>M.Min. Strategic Leadership</option>
+            <option>M.Min. Worship and Creative Arts</option>
+            <option>M.Min. Youth and Family Ministry</option>
+        </select>
+    </div>
 
-        <!-- Doctor's Degree Options -->
-        <div class="form-group" id="doctorsOptions" style="display: none;">
-            <label>Select Doctor's Degree Program</label>
-            <select class="form-control" id="doctorSelect" name="doctors">
-                <option value="" disabled selected>Select Doctor's Degree Program</option>
-                <option value="DTh">Doctor of Theology (Th.D)</option>
-                <option value="DMin">Doctor of Ministry (Th.D)</option>
-                <option value="DDiv">Doctor of Divinity (Th.D)</option>
-            </select>
-        </div>
-
-        <!-- Doctor's Degree Specializations -->
-        <div class="form-group" id="dThOptions" style="display: none;">
-            <label>Select Doctor of Theology Specialization</label>
-            <select class="form-control" name="dThSpecialization">
-                <option>Th.D. Interfaith Studies</option>
-                <option>Th.D. Patristics and Early Christianity</option>
-                <option>Th.D. Practical Theology and Counseling</option>
-            </select>
-        </div>
-        <div class="form-group" id="dMinOptions" style="display: none;">
-            <label>Select Doctor of Ministry Specialization</label>
-            <select class="form-control" name="dMinSpecialization">
-                <option>D.Min. Educational Management</option>
-                <option>D.Min. Practical Ministry and the Arts</option>
-            </select>
-        </div>
-
-        <div class="form-group" id="dDivOptions" style="display: none;">
-            <label>Select Doctor of Divinity Specialization</label>
-            <select class="form-control" name="dDivSpecialization">
-                <option>D.Div. Biblical Exegesis</option>
-                <option>D.Div. Christian Ethics and Philosophy</option>
-                <option>D.Div. Justice and Social Advocacy</option>
-                <option>D.Div. Leadership and Organizational Development</option>
-            </select>
-        </div>
-
-
+    <div class="form-group" id="mDivOptions" style="display: none;">
+        <label>Select Master of Divinity Specialization</label>
+        <select class="form-control" name="mDivSpecialization">
+            <option>M.Div. Community Development and Missions</option>
+            <option>M.Div. Comparative Religion</option>
+            <option>M.Div. Corporate Management</option>
+            <option>M.Div. New Testament Studies</option>
+            <option>M.Div. Old Testament Studies</option>
+            <option>M.Div. Restorative Justice</option>
+        </select>
     </div>
 
 
-    <script>
-        document.getElementById('programSelect').addEventListener('change', function() {
-            var programValue = this.value;
-    
-            // Hide all program-specific options
-            document.getElementById('certificationOptions').style.display = 'none';
-            document.getElementById('bachelorsOptions').style.display = 'none';
-            document.getElementById('mastersOptions').style.display = 'none';
-            document.getElementById('doctorsOptions').style.display = 'none';
-            
-            document.getElementById('bThOptions').style.display = 'none';
-            document.getElementById('bMinOptions').style.display = 'none';
-            document.getElementById('bDivOptions').style.display = 'none';
-            document.getElementById('mThOptions').style.display = 'none';
-            document.getElementById('mMinOptions').style.display = 'none';
-            document.getElementById('mDivOptions').style.display = 'none';
-            document.getElementById('dThOptions').style.display = 'none';
-            document.getElementById('dMinOptions').style.display = 'none';
-            document.getElementById('dDivOptions').style.display = 'none';
-    
-            // Display the correct program options
-            if (programValue === 'Certification') {
-                document.getElementById('certificationOptions').style.display = 'block';
-            } else if (programValue === 'Bachelors') {
-                document.getElementById('bachelorsOptions').style.display = 'block';
-            } else if (programValue === 'Masters') {
-                document.getElementById('mastersOptions').style.display = 'block';
-            } else if (programValue === 'Doctorate') {
-                document.getElementById('doctorsOptions').style.display = 'block';
-            }
-        });
-    
-        // Add change listeners for Bachelor's, Master's, and Doctorate dropdowns to show specializations
-        document.getElementById('bachelorSelect').addEventListener('change', function() {
-            document.getElementById('bThOptions').style.display = 'none';
-            document.getElementById('bMinOptions').style.display = 'none';
-            document.getElementById('bDivOptions').style.display = 'none';
-    
-            if (this.value === 'BTh') {
-                document.getElementById('bThOptions').style.display = 'block';
-            } else if (this.value === 'BMin') {
-                document.getElementById('bMinOptions').style.display = 'block';
-            } else if (this.value === 'BDiv') {
-                document.getElementById('bDivOptions').style.display = 'block';
-            }
-        });
-    
-        document.getElementById('masterSelect').addEventListener('change', function() {
-            document.getElementById('mThOptions').style.display = 'none';
-            document.getElementById('mMinOptions').style.display = 'none';
-            document.getElementById('mDivOptions').style.display = 'none';
-    
-            if (this.value === 'MTh') {
-                document.getElementById('mThOptions').style.display = 'block';
-            } else if (this.value === 'MMin') {
-                document.getElementById('mMinOptions').style.display = 'block';
-            } else if (this.value === 'MDiv') {
-                document.getElementById('mDivOptions').style.display = 'block';
-            }
-        });
-    
-        document.getElementById('doctorSelect').addEventListener('change', function() {
-            document.getElementById('dThOptions').style.display = 'none';
-            document.getElementById('dMinOptions').style.display = 'none';
-            document.getElementById('dDivOptions').style.display = 'none';
-    
-            if (this.value === 'DTh') {
-                document.getElementById('dThOptions').style.display = 'block';
-            } else if (this.value === 'DMin') {
-                document.getElementById('dMinOptions').style.display = 'block';
-            } else if (this.value === 'DDiv') {
-                document.getElementById('dDivOptions').style.display = 'block';
-            }
-        });
-    </script>
-    
 
 
+    <!-- DOCTORATE DEGREE -->
+
+    <!-- Doctor's Degree Options -->
+    <div class="form-group" id="doctorsOptions" style="display: none;">
+        <label>Select Doctor's Degree Program</label>
+        <select class="form-control" id="doctorSelect" name="doctors">
+            <option value="" disabled selected>Select Doctor's Degree Program</option>
+            <option value="DTh">Doctor of Theology (Th.D)</option>
+            <option value="DMin">Doctor of Ministry (Th.D)</option>
+            <option value="DDiv">Doctor of Divinity (Th.D)</option>
+        </select>
+    </div>
+
+    <!-- Doctor's Degree Specializations -->
+    <div class="form-group" id="dThOptions" style="display: none;">
+        <label>Select Doctor of Theology Specialization</label>
+        <select class="form-control" name="dThSpecialization">
+            <option>Th.D. Interfaith Studies</option>
+            <option>Th.D. Patristics and Early Christianity</option>
+            <option>Th.D. Practical Theology and Counseling</option>
+        </select>
+    </div>
+    <div class="form-group" id="dMinOptions" style="display: none;">
+        <label>Select Doctor of Ministry Specialization</label>
+        <select class="form-control" name="dMinSpecialization">
+            <option>D.Min. Educational Management</option>
+            <option>D.Min. Practical Ministry and the Arts</option>
+        </select>
+    </div>
+
+    <div class="form-group" id="dDivOptions" style="display: none;">
+        <label>Select Doctor of Divinity Specialization</label>
+        <select class="form-control" name="dDivSpecialization">
+            <option>D.Div. Biblical Exegesis</option>
+            <option>D.Div. Christian Ethics and Philosophy</option>
+            <option>D.Div. Justice and Social Advocacy</option>
+            <option>D.Div. Leadership and Organizational Development</option>
+        </select>
+    </div>
+
+
+</div>
+
+
+<script>
+    document.getElementById('programSelect').addEventListener('change', function() {
+        var programValue = this.value;
+
+        // Hide all program-specific options
+        document.getElementById('certificationOptions').style.display = 'none';
+        document.getElementById('bachelorsOptions').style.display = 'none';
+        document.getElementById('mastersOptions').style.display = 'none';
+        document.getElementById('doctorsOptions').style.display = 'none';
         
+        document.getElementById('bThOptions').style.display = 'none';
+        document.getElementById('bMinOptions').style.display = 'none';
+        document.getElementById('bDivOptions').style.display = 'none';
+        document.getElementById('mThOptions').style.display = 'none';
+        document.getElementById('mMinOptions').style.display = 'none';
+        document.getElementById('mDivOptions').style.display = 'none';
+        document.getElementById('dThOptions').style.display = 'none';
+        document.getElementById('dMinOptions').style.display = 'none';
+        document.getElementById('dDivOptions').style.display = 'none';
 
-        <div class="row">
-            <h4 style="margin-left: 10px;">Please upload the following documents: (Your Certificates, Degrees / Diplomas, One passport-sized photo)
-                Ensure each file is in PDF or JPEG format and clearly legible.
-            </h4>
-            <div class="col-md-5">
-                <div class="file-upload" id="file-upload">
-                    <label for="file-input"> Upload Passport here
-                        <div style="color: #d8913f;">Drag & Drop Files Here</div>
-                        <div>or</div>
-                        <div style="color: #d8913f;">Browse Files</div>
-                    </label>
-                    <input id="file-input" type="file" accept=".jpg" />
-                    <div class="file-name" id="file-name">0 of 1</div>
-                </div>
-            </div>
-            <div class="col-md-7">
-                <div class="file-upload file-upload-many" id="file-upload-many">
-                    <label for="file-input-many">Upload your Certificates, Diplomas and Degree here
-                        <div style="color: #d8913f;">Drag & Drop Files Here</div>
-                        <div>or</div>
-                        <div style="color: #d8913f;">Browse Files</div>
-                    </label>
-                    <input id="file-input-many" type="file" accept=".jpg,.pdf" multiple />
-                    <div class="file-names" id="file-names">0 of 10 files selected</div>
-                </div>
-            </div>
-        </div>
+        // Display the correct program options
+        if (programValue === 'Certification') {
+            document.getElementById('certificationOptions').style.display = 'block';
+        } else if (programValue === 'Bachelors') {
+            document.getElementById('bachelorsOptions').style.display = 'block';
+        } else if (programValue === 'Masters') {
+            document.getElementById('mastersOptions').style.display = 'block';
+        } else if (programValue === 'Doctorate') {
+            document.getElementById('doctorsOptions').style.display = 'block';
+        }
+    });
 
-        <div class="form-group">
-            <textarea name="text" class="form-control" placeholder="Please share your reasons for enrolling in this degree program. Kindly limit your response to 150 words or fewer." cols="50" rows="40"></textarea>
+    // Add change listeners for Bachelor's, Master's, and Doctorate dropdowns to show specializations
+    document.getElementById('bachelorSelect').addEventListener('change', function() {
+        document.getElementById('bThOptions').style.display = 'none';
+        document.getElementById('bMinOptions').style.display = 'none';
+        document.getElementById('bDivOptions').style.display = 'none';
+
+        if (this.value === 'BTh') {
+            document.getElementById('bThOptions').style.display = 'block';
+        } else if (this.value === 'BMin') {
+            document.getElementById('bMinOptions').style.display = 'block';
+        } else if (this.value === 'BDiv') {
+            document.getElementById('bDivOptions').style.display = 'block';
+        }
+    });
+
+    document.getElementById('masterSelect').addEventListener('change', function() {
+        document.getElementById('mThOptions').style.display = 'none';
+        document.getElementById('mMinOptions').style.display = 'none';
+        document.getElementById('mDivOptions').style.display = 'none';
+
+        if (this.value === 'MTh') {
+            document.getElementById('mThOptions').style.display = 'block';
+        } else if (this.value === 'MMin') {
+            document.getElementById('mMinOptions').style.display = 'block';
+        } else if (this.value === 'MDiv') {
+            document.getElementById('mDivOptions').style.display = 'block';
+        }
+    });
+
+    document.getElementById('doctorSelect').addEventListener('change', function() {
+        document.getElementById('dThOptions').style.display = 'none';
+        document.getElementById('dMinOptions').style.display = 'none';
+        document.getElementById('dDivOptions').style.display = 'none';
+
+        if (this.value === 'DTh') {
+            document.getElementById('dThOptions').style.display = 'block';
+        } else if (this.value === 'DMin') {
+            document.getElementById('dMinOptions').style.display = 'block';
+        } else if (this.value === 'DDiv') {
+            document.getElementById('dDivOptions').style.display = 'block';
+        }
+    });
+</script>
+
+
+
+    
+
+    <div class="row">
+    <h4 style="margin-left: 10px;">Please upload the following documents: (Your Certificates, Degrees / Diplomas, One passport-sized photo)
+        Ensure each file is in PDF or JPEG format and clearly legible.
+    </h4>
+    <div class="col-md-5">
+        <div class="file-upload" id="file-upload">
+            <label for="passport-input"> Upload Passport here
+                <div style="color: #d8913f;">Drag & Drop Files Here</div>
+                <div>or</div>
+                <div style="color: #d8913f;">Browse Files</div>
+            </label>
+            <input id="passport-input" type="file" name="passport" accept=".jpg" required />
+            <div class="file-name" id="passport-name">No file selected</div>
         </div>
-        <button type="submit" name="submit" class="btn btn-contact-info btn-block">Apply Now</button>
-    </form>
+    </div>
+    <div class="col-md-7">
+        <div class="file-upload file-upload-many" id="file-upload-many">
+            <label for="qualifications-input">Upload your Certificates, Diplomas and Degree here
+                <div style="color: #d8913f;">Drag & Drop Files Here</div>
+                <div>or</div>
+                <div style="color: #d8913f;">Browse Files</div>
+            </label>
+            <input id="qualifications-input" type="file" name="qualifications" accept=".jpg,.pdf" multiple required />
+            <div class="file-names" id="qualifications-names">0 of 10 files selected</div>
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <textarea name="text" class="form-control" placeholder="Please share your reasons for enrolling in this degree program. Kindly limit your response to 150 words or fewer." cols="50" rows="4" required></textarea>
+</div>
+<button type="submit" name="submit" class="btn btn-contact-info btn-block">Apply Now</button>
+
+<script>
+    // Update file name display for passport
+    document.getElementById('passport-input').addEventListener('change', function() {
+        var fileName = this.files.length > 0 ? this.files[0].name : 'No file selected';
+        document.getElementById('passport-name').textContent = fileName;
+    });
+
+    // Update file names display for qualifications
+    document.getElementById('qualifications-input').addEventListener('change', function() {
+        var fileNames = Array.from(this.files).map(file => file.name).join(', ');
+        document.getElementById('qualifications-names').textContent = fileNames.length > 0 ? fileNames : '0 of 10 files selected';
+    });
+</script>
+</form>
 </div>
 
                     
