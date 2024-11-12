@@ -1,0 +1,824 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@300;400;500;600;700&display=swap');
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Top Bar */
+.top-bar {
+    background-color: #021636;
+    color: rgb(132, 132, 132);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12rem;
+}
+
+.contact-info span {
+    margin-right: 15px;
+}
+
+.contact-info span a {
+    color: rgb(132, 132, 132);
+    line-height: 15px;
+    align-items: center;
+    font-weight: 300;
+    text-decoration: none;
+}
+
+.contact-info span i {
+    color: #f7c02d;
+}
+
+.social-icons a {
+    margin-left: 10px;
+    color: rgb(255, 255, 132552);
+    line-height: 20px;
+    align-items: center;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.social-icons a:hover {
+    color: #fff;
+}
+
+.menu-item-search {
+    position: relative;
+}
+
+.menu-item-search i {
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.search-form {
+    display: none; /* Hide the search form by default */
+    position: absolute; /* Position it so that it overlays other elements */
+    top: 100%; /* Position below the icon */
+    left: 0; /* Align with the icon */
+    background-color: white; /* Background color for the search input */
+    padding: 5px; /* Padding around the input field */
+    border: 1px solid #ccc; /* Border styling */
+    border-radius: 4px; /* Rounded corners */
+}
+
+.search-field {
+    border: none; /* Remove default border */
+    outline: none; /* Remove outline */
+    padding: 5px; /* Padding inside the input */
+    margin-right: 5px; /* Space between the input and submit button */
+}
+
+.search-submit {
+    display: none; /* Hide the submit button */
+}
+
+.toggle-search {
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+/* Main Header */
+.main-header {
+    background-color: #011734;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 20px 10px;
+    color: white;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 100%; /* Set the image to fill its container */
+    max-width: 400px; /* Set a max width for the logo */
+    margin-right: 15px;
+}
+
+.logo h1 {
+    font-size: 22px;
+    letter-spacing: 1.2px;
+    line-height: 1.2;
+}
+
+.search-bar {
+    font-size: 18px;
+    cursor: pointer;
+    color: white;
+    margin-right: auto;
+}
+
+/*--------------------------------------------------------------
+   Navigations
+--------------------------------------------------------------*/
+.main-header {
+    padding: 2rem 10rem;
+}
+
+.primary-nav > ul.menu > li.mf-active-menu {
+    height: 5px;
+    background-color: #f7c02d;
+    z-index: 1;
+    position: absolute;
+    top: 10%;
+    padding: 0;
+    transition: none;
+}
+
+.main-nav {
+    float: left;
+    
+}
+
+.main-nav a {
+    font-weight: 600;
+    font-size: 15px;
+    color: #fff;
+    display: block;
+    align-items: center;
+    text-decoration: none;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+    position: relative;
+}
+
+.main-nav ul ul {
+    transition: top 0.3s ease, opacity 0.3s;
+    position: absolute;
+    top: 80%;
+    left: 0;
+    width: 300px;
+    transform: scaleX(0);
+    background: linear-gradient(#021636, #00102a);
+    margin-top: 30px;
+    z-index: 99;
+}
+
+.main-nav ul ul:before {
+    content: '';
+    width: 100%;
+    height: 10px;
+    position: absolute;
+    background-color: #001029;
+    left: 0;
+    top: -10px;
+    z-index: 99;
+}
+
+.main-nav ul ul ul {
+    transition: left 0.3s ease, opacity 0.3s;
+    left: 115%;
+    top: 0;
+    box-shadow: none;
+    margin-top: 0;
+    z-index: 99;
+}
+
+.main-nav ul ul ul:before {
+    content: '';
+    width: 10px;
+    height: 100%;
+    position: absolute;
+    background-color: #001029;
+    top: 0;
+    left: -10px;
+    z-index: 99;
+}
+
+.main-nav li {
+    position: relative;
+}
+.main-nav .home:before {
+    content: '';
+    width: 55%;
+    height: 10%;
+    position: absolute;
+    background-color: #f7c02d;
+    top: 85%;
+    left: 20px;
+    z-index: 1000;
+    font-family: "Hind Vadodara", sans-serif;
+}
+
+.main-nav li:hover > ul {
+    opacity: 1;
+    z-index: 9999;
+    top: 59%;
+    transform: scaleX(1);
+}
+
+.main-nav li li {
+    padding: 0 20px;
+    display: block;
+    line-height: 1;
+    transition: 0.5s;
+    position: relative;
+}
+
+.main-nav li li:last-child {
+    border-bottom: 0;
+}
+
+.main-nav li li a {
+    font-size: 16px;
+    padding: 18px 0;
+    font-weight: 300;
+    color: #fff;
+    display: block;
+    text-transform: capitalize;
+}
+
+.main-nav li li:hover > a {
+    color: #fff;
+}
+
+.main-nav li li:hover > ul {
+    top: 0;
+    left: calc(100% + 10px);
+}
+
+.main-nav ul.menu {
+    padding-left: 10px;
+    position: relative;
+}
+
+.main-nav ul.menu li.mf-active-menu {
+    z-index: 9;
+}
+
+.main-nav ul.menu > li {
+    float: left;
+    position: relative;
+    text-align: left;
+    padding: 25px 20px;
+    font-family: "Hind Vadodara", sans-serif;
+}
+
+.main-nav ul.menu > li:first-child > ul {
+    left: 0;
+}
+
+.main-nav ul.menu > li > a {
+    text-transform: uppercase;
+    transition: 0.5s;
+    text-decoration: none;
+    font-weight: 600;
+    color: #fff;
+    font-size: 15px;
+    line-height: 24px;
+    font-family: "Hind Vadodara", sans-serif;
+}
+
+.main-nav ul.menu > li:hover > a {
+    color: #f7c02d;
+}
+
+.main-nav div.menu > ul {
+    zoom: 1;
+}
+
+.main-nav div.menu > ul:after {
+    clear: both;
+}
+
+.main-nav div.menu > ul > li {
+    float: left;
+    position: relative;
+    text-align: left;
+    padding: 16px 20px;
+    text-decoration: none;
+    font-weight: 300;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    line-height: 22px;
+    font-family: "Hind Vadodara", sans-serif;
+}
+
+.main-nav div.menu > ul > li.current_page_item > a,
+.main-nav div.menu > ul > li:hover > a {
+    color: #f7c02d;
+    font-family: "Hind Vadodara", sans-serif;
+}
+
+.main-nav div.menu li:hover > ul {
+    opacity: 1;
+    z-index: 9999;
+    top: 47%;
+    transform: scaleX(1);
+}
+
+.main-nav .menu .is-mega-menu:hover .dropdown-submenu {
+    transform: translateX(0) scale(1);
+    width: 300px;
+}
+
+.main-nav .menu .is-mega-menu .dropdown-submenu {
+     position: absolute;
+    left: 0;
+    transform: translateX(0) scale(0);
+    width: 100%;
+    padding: 0;
+}
+
+.main-nav .menu .is-mega-menu .dropdown-submenu .mega-menu-content {
+    padding: 35px 30px;
+}
+
+.main-nav .menu .is-mega-menu .dropdown-submenu .menu-item-mega > a {
+    color: rgb(255, 255, 255);
+    padding: 15px 0;
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    font-family: "Hind Vadodara", sans-serif;
+}
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+    .top-bar, .main-header {
+        padding: 10px 24px;
+    }
+
+    .logo img {
+        width: 80%; /* Reduce logo size on smaller screens */
+    }
+
+    .main-nav ul.menu > li {
+        padding: 15px 10px
+    }
+}
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    .top-bar, .main-header {
+        padding: 10px 24px;
+    }
+
+    .logo img {
+        width: 80%; /* Reduce logo size on smaller screens */
+    }
+
+    .main-nav ul.menu > li {
+        padding: 15px 10px
+    }
+}
+.menu-toggle i,
+ .side-menu {
+    display: none;
+ }
+
+
+/* For screens smaller than 768px */
+@media (max-width: 768px) {
+    .main-header {
+        padding-top: 20px;
+         padding-bottom: 30px;
+    }
+    .logo img {
+        width: 75%; /* Reduce logo size on smaller screens */
+         display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    }
+    .main-nav, 
+    .top-bar {
+        display: none;
+    }
+    .main-header {
+        display: block;
+    }
+    
+    .menu-toggle i {
+        display: block; /* Make sure the menu icon is visible */
+        font-size: 35px;
+        color: #fff !important;
+        cursor: pointer;
+        margin-bottom: -15px;
+    }
+
+    .side-menu {
+        position: fixed;
+        right: -100%;
+        top: 0;
+        height: 100%;
+        width: 80%;
+        max-width: 300px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        z-index: 9999;
+        display: block; /* Ensure the side-menu is initially hidden off-screen */
+    }
+}
+/* General Styles for Menu */
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    color: #fff !important;
+    z-index: 100;
+}
+
+.side-menu {
+    position: fixed;
+    padding: 15px;
+    top: 0;
+    right: -250px; /* Initially hidden */
+    width: 340px;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #fff;
+    transition: right 0.3s ease-in-out;
+    z-index: 9999;
+}
+
+.side-menu.open {
+    right: 0;
+}
+
+.close-btn {
+    position: absolute;
+    top: 5px;
+    left: 30px;
+    font-size: 50px;
+    cursor: pointer;
+    font-weight: 300 !important;
+    z-index: 99999 !important;
+    margin-top: -10px !important;
+    
+} /* Avoid pointer events interfering with the close button */
+.side-menu .top a {
+    pointer-events: none;
+}
+
+/* Or adjust the Home menu item if it's too close to the close button */
+.side-menu .top {
+    margin-top: 10px; /* Adjust to create space between close button and Home */
+}
+.top{
+    padding-top: 30%;
+    color: #f7c02d !important;
+}
+.side-menu .close-btn i {
+    font-size: 1.8rem;
+    cursor: pointer;
+    font-weight: -20% !important;
+    color: #0f080880;
+    font-family: "Hind Vadodara", sans-serif;
+    line-height: 26px;
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.side-menu ul li {
+    padding: 15px 0;
+    border-bottom: 1px solid #efefef;
+}
+
+.side-menu ul li a {
+    text-decoration: none;
+    color: #252525;
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 300;
+    display: block;
+    position: relative;
+    text-align: left;
+    padding-left: 30px;
+    font-family: "Hind Vadodara", sans-serif;
+    padding-right: 30px;
+}
+
+.side-menu ul li a:hover,
+.side-menu ul li.active a {
+    color: #f7c02d;
+    font-family: "Hind Vadodara", sans-serif;
+}
+
+.side-menu ul li .plus-icon {
+    position: absolute;
+    right: 0;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #979797;
+}
+
+.side-menu ul li.has-dropdown .dropdown {
+    display: none;
+    padding-left: 5px;
+}
+
+.side-menu ul li.has-dropdown .dropdown li {
+    padding: 10px 0;
+    border: none;
+    color: #979797;
+    font-size: 15px;
+    font-family: "Hind Vadodara", sans-serif;
+    
+}
+
+.side-menu ul li.has-dropdown.open .dropdown {
+    display: block;
+}
+
+/* Styling for the dropdown */
+.has-dropdown > .dropdown {
+    display: none;
+    list-style: none;
+    padding: 0;
+}
+
+.has-dropdown.open > .dropdown {
+    display: block;
+}
+
+/* Styling for sub-dropdowns */
+.has-sub-dropdown > .sub-dropdown {
+    display: none;
+    list-style: none;
+    padding-left: 15px; /* Indent for sub-dropdowns */
+}
+
+.has-sub-dropdown.open > .sub-dropdown {
+    display: block;
+}
+
+.plus-icon {
+    margin-left: 5px;
+}
+
+.has-dropdown > a, .has-sub-dropdown > a {
+    cursor: pointer;
+}
+
+/* Search Box */
+.search-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+}
+
+.search-container input {
+    margin: 30px;
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.search-container button {
+    color: #f7cdd02d;
+    background-color: #ccc;
+    border: none;
+    padding: 12px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block !important;
+        
+
+    }
+
+    .side-menu {
+        right: -340px; /* Hidden by default */
+    }
+
+    .side-menu.open {
+        right: 0;
+    }
+
+    .side-menu ul li .plus-icon {
+        display: inline-block;
+    }
+}
+
+ 
+  footer {
+    background-color: #001029;
+    padding: 20px 120px;
+    /*padding-top: 70px;*/
+	 padding-bottom: 10px;
+	position: relative;
+	color: #fff;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 20px;
+    color: #ffffff;
+  }
+
+  .footer-section {
+    width: 30%;
+  }
+  .footer-section .logo img {
+    width: 100%; /* Set the image to fill its container */
+    max-height: 1200px;
+    max-width: 400px; /* Set a max width for the logo */
+    margin-right: 15px;
+    margin-bottom: 10%;
+}
+  .mission img {
+    width: 100px;
+  }
+ 
+  .mission h4 {
+    margin-top: 20px;
+    font-size: 22px;
+	font-weight: 500;
+	margin: 0;
+	padding-bottom: 15px;
+	position: relative;
+	color: #fff;
+	margin-bottom: 40px;
+	font-weight: 300;
+    font-weight: 900; text-transform: uppercase
+  }
+  .mission h4:after {
+    content: '';
+    width: 50px;
+    height: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    background-color: #f7c02d;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+  .mission p {
+    margin-bottom: 20px;
+    font-family: "Hind Vadodara", sans-serif;
+font-style: normal;
+font-weight: 300;
+color: rgb(255, 255, 255);
+font-size: 18px;
+line-height: 29px;
+  }
+  @media (max-width: 768px) {
+    footer {
+        padding: 20px;
+        
+      }
+      .footer-container {
+        display: block;
+        width: 100%;
+      }
+      
+  .footer-section {
+    width: 100%;
+  }
+  .mission p br{
+    display: none;
+  }
+  }
+  .footer-social a {
+    display: inline-block;
+    margin: 0 5px;
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    line-height: 42px;
+    background: #AE1A03;
+    border: 1px solid #AE1A03;
+    color: #fff;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    text-align: center;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.footer-social a:last-child {
+    padding-right: 0;
+}
+
+.footer-social a:first-child {
+    padding-left: 0;
+}
+
+.footer-social a:hover {
+    border-color: #d89311;
+    background-color: #d89311;
+    color: #0b0b0b;
+}
+
+  .contact-detail {
+    margin-bottom: 7px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+  .useful-links h4, .contact-details h4 {
+    color: #fff;
+    padding-top: 10%;
+    padding-bottom: 4%;
+    font-size: 26px;
+    font-weight: 900;
+    font-family: "Hind Vadodara", sans-serif;
+    font-style: normal;
+    line-height: 31px;
+    text-transform: capitalize;
+    margin: 0 0 5px;
+    position: relative;
+  }
+  .useful-links h4:after,
+  .contact-details h4:after {
+    content: '';
+    width: 50px;
+    height: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    background-color: #f7c02d;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+  .footer-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3px;
+    padding-top: 10%;
+  }
+  .useful-links .footer-list ul, .contact-details ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .useful-links .footer-list ul li, .contact-details  ul li {
+    padding-bottom: 16px;
+    font-size: 16px;
+    font-weight: 300;
+    font-family: "Hind Vadodara", sans-serif !important;
+    font-style: normal;
+    line-height: 26px;
+    
+    margin: 0 0 5px;
+  }
+  
+  .useful-links .footer-list ul li a {
+    text-decoration: none;
+    color: #ffffff;
+  }
+  
+  .useful-links .footer-list ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-bottom {
+   /*position: absolute;*/
+   display: flex;
+   justify-content: flex-start;
+    background-color: #E4A839;
+    width: 100%;
+    padding: 15px 120px;
+  }
+  .footer-bottom p {
+    color: #0b0b0b;  text-align: left; font-family: "Hind Vadodara", sans-serif; font-size: 15px;
+}
+@media (max-width:768px) {
+    .useful-links .footer-list ul li a br{
+        display: none;
+    }
+    .contact-details p br{
+        display: none;
+    }
+    .footer-bottom {
+         padding: 20px;
+       }
+}

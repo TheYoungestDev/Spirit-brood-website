@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Application Form</title>
+</head>
+<body>
+
+    <h3>What Program are you applying for?</h3>
+    <div class="form-group">
+        <select class="form-control" id="programSelect" name="program" required>
+            <option value="" disabled selected>Select Program Level*</option>
+            <option value="Certification">Certification</option>
+            <option value="License">License</option>
+            <option value="Bachelors">Bachelor’s Degree</option>
+            <option value="Masters">Master’s Degree</option>
+            <option value="Doctorate">Doctorate Degree</option>
+        </select>
+    </div>
+
+    <!-- Certification Options -->
+    <div class="form-group" id="certificationOptions" style="display: none;">
+        <label>Select Certification Program</label>
+        <select class="form-control" name="certification">
+            <option>Certified Christian Administrator</option>
+            <option>Certified Christian Caregiver</option>
+            <option>Certified Christian Counselor</option>
+            <option>Certified Christian Life Coach</option>
+            <option>Certified Christian Mediator</option>
+            <option>Certified Christian Philosopher/Analyst</option>
+            <option>Certified Corporate Chaplain</option>
+        </select>
+    </div>
+
+    <!-- License Options -->
+    <div class="form-group" id="licenseOptions" style="display: none;">
+        <label>Select License Program</label>
+        <select class="form-control" name="license">
+            <option>Licensed Christian Administrator</option>
+            <option>Licensed Christian Caregiver</option>
+            <option>Licensed Christian Counselor</option>
+            <option>Licensed Christian Life Coach</option>
+            <option>Licensed Christian Mediator</option>
+            <option>Licensed Christian Philosopher/Analyst</option>
+            <option>Licensed Corporate Chaplain</option>
+        </select>
+    </div>
+
+    <!-- Bachelor's Degree Options -->
+    <div class="form-group" id="bachelorsOptions" style="display: none;">
+        <label>Select Bachelor’s Degree Program</label>
+        <select class="form-control" id="bachelorSelect" name="bachelors">
+            <option value="BMin">Bachelor of Ministry (B.Min.)</option>
+            <option value="BTh">Bachelor of Theology (B.Th.)</option>
+            <option value="BDiv">Bachelor of Divinity (B.Div.)</option>
+        </select>
+    </div>
+
+    <!-- Specializations for Bachelor’s Degrees -->
+    <div class="form-group" id="bMinOptions" style="display: none;">
+        <label>Select Bachelor of Ministry Specialization</label>
+        <select class="form-control" name="bMinSpecialization">
+            <option>B.Min. Christian Leadership</option>
+            <option>B.Min. Church Administration</option>
+            <option>B.Min. Educational Management</option>
+            <option>B.Min. Evangelism and Missions</option>
+            <option>B.Min. Music and Worship</option>
+            <option>B.Min. Pastoring and Discipleship</option>
+            <option>B.Min. Youth Ministry</option>
+        </select>
+    </div>
+
+    <div class="form-group" id="bThOptions" style="display: none;">
+        <label>Select Bachelor of Theology Specialization</label>
+        <select class="form-control" name="bThSpecialization">
+            <option>B.Th. Theology</option>
+            <option>B.Th. Christian Apologetics</option>
+            <option>B.Th. Christian Counseling</option>
+            <option>B.Th. Comparative Religion</option>
+            <option>B.Th. Missiology</option>
+        </select>
+    </div>
+
+    <div class="form-group" id="bDivOptions" style="display: none;">
+        <label>Select Bachelor of Divinity Specialization</label>
+        <select class="form-control" name="bDivSpecialization">
+            <option>B.Div. Divinity Studies</option>
+            <option>B.Div. Pastoral Studies</option>
+            <option>B.Div. Christian Leadership</option>
+            <option>B.Div. Evangelism and Church Growth</option>
+            <option>B.Div. Missions and Intercultural Studies</option>
+        </select>
+    </div>
+
+    <!-- Master's and Doctorate Options -->
+    <div class="form-group" id="mastersOptions" style="display: none;">
+        <label>Select Master’s Degree Program</label>
+        <select class="form-control" name="masters">
+            <option>Master of Ministry (M.Min.)</option>
+            <option>Master of Theology (M.Th.)</option>
+            <option>Master of Divinity (M.Div.)</option>
+        </select>
+    </div>
+
+    <div class="form-group" id="doctorsOptions" style="display: none;">
+        <label>Select Doctorate Degree Program</label>
+        <select class="form-control" name="doctorate">
+            <option>Doctor of Ministry (D.Min.)</option>
+            <option>Doctor of Theology (D.Th.)</option>
+            <option>Doctor of Philosophy (Ph.D.)</option>
+        </select>
+    </div>
+
+    <script src="script.js"></script> <!-- Link to external JS file -->
+</body>
+</html>

@@ -1,0 +1,163 @@
+
+  <style>
+    /* Wrapping div to enable horizontal scroll on small screens */
+    .table-responsive {
+      overflow-x: auto;
+    }
+
+    /* Table styling */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: Arial, sans-serif;
+    }
+    
+    th, td {
+      border: 1px solid #000;
+      padding: 8px;
+      text-align: center;
+    }
+    
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+
+    /* Header row styling */
+    .header-row th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+
+    /* Alternating row colors */
+    tr:nth-child(even) {
+      background-color: #ffffff;
+    }
+
+    tr:nth-child(odd) {
+      background-color: #f9f9f9;
+    }
+
+    /* Specific column colors */
+    .highlighted-cell {
+      background-color: #d9ead3;
+      font-weight: bold;
+      color: #000;
+    }
+
+    /* Bold text */
+    .bold-text {
+      font-weight: bold;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      th, td {
+        padding: 6px;
+        font-size: 0.9em;
+      }
+    }
+  </style>
+
+
+<div class="table-responsive">
+  <table>
+    <tr class="header-row">
+      <th colspan="2"></th>
+      <th>Developing Countries</th>
+      <th>Developed Countries</th>
+    </tr>
+    <tr>
+      <td class="bold-text">Application Fee</td>
+      <td>All Levels</td>
+      <td class="highlighted-cell">Free</td>
+      <td class="highlighted-cell">Free</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td class="bold-text">Tuition Fee</td>
+      <td>All Levels</td>
+      <td class="highlighted-cell">Free</td>
+      <td class="highlighted-cell">Free</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td class="bold-text">Acceptance Fee</td>
+      <td>Bachelor’s</td>
+      <td>$100</td>
+      <td class="highlighted-cell">$150</td>
+      <td>One-time fee</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Masters</td>
+      <td>$150</td>
+      <td class="highlighted-cell">$225</td>
+      <td>One-time fee</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Doctorate</td>
+      <td>$200</td>
+      <td class="highlighted-cell">$300</td>
+      <td>One-time fee</td>
+    </tr>
+    <tr>
+      <td class="bold-text">Thesis Fee</td>
+      <td>Bachelor’s</td>
+      <td>$150</td>
+      <td class="highlighted-cell">$225</td>
+      <td>One-time fee</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Masters</td>
+      <td>$200</td>
+      <td class="highlighted-cell">$300</td>
+      <td>One-time fee</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Doctorate</td>
+      <td>$300</td>
+      <td class="highlighted-cell">$450</td>
+      <td>One-time fee</td>
+    </tr>
+    <tr>
+      <td class="bold-text">Graduation Fee</td>
+      <td>All Levels</td>
+      <td>$200</td>
+      <td class="highlighted-cell">$300</td>
+      <td>One-time fee</td>
+    </tr>
+    <tr>
+      <td class="bold-text">Student Package</td>
+      <td>All Levels</td>
+      <td>$200</td>
+      <td class="highlighted-cell">$300</td>
+      <td>One-time fee (optional)</td>
+    </tr>
+    <tr>
+      <td class="bold-text">Mentorship Fee</td>
+      <td>Bachelor’s</td>
+      <td>$75</td>
+      <td class="highlighted-cell">$115</td>
+      <td>Annually</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Masters</td>
+      <td>$100</td>
+      <td class="highlighted-cell">$150</td>
+      <td>Annually</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Doctorate</td>
+      <td>$150</td>
+      <td class="highlighted-cell">$225</td>
+      <td>Annually</td>
+    </tr>
+  </table>
+</div>
+

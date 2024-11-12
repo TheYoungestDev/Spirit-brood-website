@@ -1,0 +1,21 @@
+/* Override any styles from public_html/css that interfere with blog content */
+body {
+    font-family: inherit;
+    background-color: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Your Blog Font', sans-serif !important;
+}
+p {
+    font-size: 1.2em;
+    line-height: 1.5;
+    color: #000;
+    text-align: left;
+}
+
+a {
+    color: #007bff !important;
+}

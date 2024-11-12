@@ -1,0 +1,82 @@
+   /* Base Styles */
+        .body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #E4A839;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        .main {
+            padding: 2rem;
+        }
+
+        .program {
+            border: 1px solid #ddd;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .program h2 {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .credit-hours {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .overview {
+            display: none;
+            margin-top: 1rem;
+        }
+
+        .overview.expanded {
+            display: block;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            color: white;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .learn-more {
+            background-color: transparent; border-radius: 5px; color: #E4A839;  border: 2px solid #E4A839; padding: 12px 24px;
+        }
+
+        .learn-more:hover {
+            border: 2px solid #E4A839;
+        }
+
+        .apply-now {
+            background-color: #E4A839;
+        }
+
+        .apply-now:hover {
+            background-color: #ddaa4a;
+        }
+
+        
