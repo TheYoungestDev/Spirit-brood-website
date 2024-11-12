@@ -408,15 +408,39 @@
     </div>
     <div class="col-md-7">
         <div class="file-upload file-upload-many" id="file-upload-many">
-            <label for="qualifications-input">Upload your Certificates, Diplomas and Degree here
+            <label for="qualifications-input">Upload your Certificates, Diplomas, and Degree here
                 <div style="color: #d8913f;">Drag & Drop Files Here</div>
                 <div>or</div>
                 <div style="color: #d8913f;">Browse Files</div>
             </label>
-            <input id="qualifications-input" type="file" name="qualifications" accept=".jpg,.pdf" multiple required />
+            <input id="qualifications-input" type="file" name="qualifications[]" accept=".jpg,.pdf" multiple required />
             <div class="file-names" id="qualifications-names">0 of 10 files selected</div>
         </div>
     </div>
+
+    <script>
+document.getElementById('qualifications-input').addEventListener('change', function() {
+    const fileInput = this;
+    const fileNamesContainer = document.getElementById('qualifications-names');
+    const maxFiles = 10;
+
+    const files = Array.from(fileInput.files);
+    const fileCount = files.length;
+    
+    // Update display of selected files
+    if (fileCount > maxFiles) {
+        fileNamesContainer.textContent = `Please select a maximum of ${maxFiles} files.`;
+        fileInput.value = ""; // Reset the input if the limit is exceeded
+    } else {
+        fileNamesContainer.textContent = `${fileCount} of ${maxFiles} files selected`;
+        
+        // Optionally display each selected file name
+        const fileNames = files.map(file => file.name).join(', ');
+        console.log('Selected files:', fileNames); // Log for debugging
+    }
+});
+</script>
+
 </div>
 
 <div class="form-group">
