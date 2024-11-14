@@ -271,9 +271,9 @@
 
     <!-- Doctor's Degree Options -->
     <div class="form-group" id="doctorsOptions" style="display: none;">
-        <label>Select Doctor's Degree Program</label>
+        <label>Select Doctorate Degree Program</label>
         <select class="form-control" id="doctorSelect" name="doctors">
-            <option value="" disabled selected>Select Doctor's Degree Program</option>
+            <option value="" disabled selected>Select Doctorate Degree Program</option>
             <option value="DTh">Doctor of Theology (Th.D)</option>
             <option value="DMin">Doctor of Ministry (Th.D)</option>
             <option value="DDiv">Doctor of Divinity (Th.D)</option>
