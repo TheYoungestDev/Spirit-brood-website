@@ -18,7 +18,7 @@
                 <div class="row">
                 <div class="col-md-12">
                                             <!-- <h2 class="featured-heading-text1">Accreditation Page </h2>  -->
-                                            <br><br>
+                                    
                         <!-- <h2 class="featured-heading-text1">Accreditation</h2><img src="/images/c/AICCS.png" alt="aciis" /> -->
                         <!-- <h3 class="featured-heading-text2">Certified Member of AICCS <br>
                             Association of Independent Christian Colleges and Seminaries</h3> -->

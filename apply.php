@@ -446,7 +446,11 @@ document.getElementById('qualifications-input').addEventListener('change', funct
 <div class="form-group">
     <textarea name="text" class="form-control" placeholder="Please share your reasons for enrolling in this degree program. Kindly limit your response to 150 words or fewer." cols="50" rows="4" required></textarea>
 </div>
-<button type="submit" name="submit" class="btn btn-contact-info btn-block">Apply Now</button>
+<button type="submit" name="submit" class="btn btn-contact-info btn-block" 
+        style="background-color: #00134d; color: white; font-weight: bold; border: none;">
+  Apply Now
+</button>
+
 
 <script>
     // Update file name display for passport
