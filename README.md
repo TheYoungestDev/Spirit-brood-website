@@ -1,6 +1,8 @@
 # Spirit Brood Theological Seminary 🌐  
 **Developed by Abdullahi Tijani**  
 
+![Website Preview](website-preview.png)
+
 ## 📖 About the Project  
 [SpiritBrood.org](https://spiritbrood.org) is a fully responsive and feature-rich website designed and developed for Spirit Brood Theological Seminary. This project demonstrates my skills in web development, focusing on user engagement, accessibility, and innovative features to provide an exceptional online experience for students and staff.
 
