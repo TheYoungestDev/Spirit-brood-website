@@ -54,7 +54,7 @@ I am a professional web developer with over 4 years of experience in building hi
 
 If you’d like to connect or collaborate, feel free to reach out!  
 
-**Contact**: [abdullahitijani.com](https://github.com/abdullahitijani)  
+**Contact**: [devabdul.com.ng](https://github.com/abdullahitijani)  
 
 ---
 
