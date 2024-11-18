@@ -159,56 +159,65 @@ if (isset($_POST['submit'])) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
     
-    // Send email to the website owner with full application details
-$adminMail = new PHPMailer(true);
-try {
-    $adminMail->isSMTP();
-    $adminMail->Host = $emailHost;
-    $adminMail->SMTPAuth = true;
-    $adminMail->Username = $emailUsername;
-    $adminMail->Password = $emailPassword;
-    $adminMail->SMTPSecure = 'tls';
-    $adminMail->Port = 587;
+    // Send email to the website owner with full application details and attachments
+    $adminMail = new PHPMailer(true);
+    try {
+        $adminMail->isSMTP();
+        $adminMail->Host = $emailHost;
+        $adminMail->SMTPAuth = true;
+        $adminMail->Username = $emailUsername;
+        $adminMail->Password = $emailPassword;
+        $adminMail->SMTPSecure = 'tls';
+        $adminMail->Port = 587;
 
-    $adminMail->setFrom($emailUsername, 'Registrar');
-    $adminMail->addAddress('admissions@spiritbrood.org');
+        $adminMail->setFrom($emailUsername, 'Registrar');
+        $adminMail->addAddress('admissions@spiritbrood.org');
 
-    $adminMail->isHTML(true);
-    $adminMail->Subject = 'New Application Submitted';
-    $adminMail->Body = "
-        <h3>New Application Details</h3>
-        <p><strong>First Name:</strong> $firstname</p>
-        <p><strong>Middle Name:</strong> $middlename</p>
-        <p><strong>Last Name:</strong> $lastname</p>
-        <p><strong>Email:</strong> $email</p>
-        <p><strong>Phone Number:</strong> $phonenumber</p>
-        <p><strong>Sex:</strong> $sex</p>
-        <p><strong>Marital Status:</strong> $maritalstatus</p>
-        <p><strong>Date of Birth:</strong> $dob</p>
-        <p><strong>Age:</strong> $age</p>
-        <p><strong>Address:</strong> $address</p>
-        <p><strong>City:</strong> $city</p>
-        <p><strong>State:</strong> $state</p>
-        <p><strong>Country:</strong> $country</p>
-        <p><strong>Postal Code:</strong> $postalcode</p>
-        <p><strong>Program:</strong> $program</p>
-        <p><strong>Certification:</strong> $certification</p>
-        <p><strong>Bachelor's Degree:</strong> $bachelors</p>
-        <p><strong>BTh Specialization:</strong> $bThSpecialization</p>
-        <p><strong>BMin Specialization:</strong> $bMinSpecialization</p>
-        <p><strong>BDiv Specialization:</strong> $bDivSpecialization</p>
-        <p><strong>Master's Degree:</strong> $masters</p>
-        <p><strong>MTh Specialization:</strong> $mThSpecialization</p>
-        <p><strong>MMin Specialization:</strong> $mMinSpecialization</p>
-        <p><strong>MDiv Specialization:</strong> $mDivSpecialization</p>
-        <p><strong>Doctorate Degree:</strong> $doctors</p>
-        <p><strong>DTh Specialization:</strong> $dThSpecialization</p>
-        <p><strong>DMin Specialization:</strong> $dMinSpecialization</p>
-        <p><strong>DDiv Specialization:</strong> $dDivSpecialization</p>
-        <p><strong>Qualifications:</strong> $qualificationsText</p>
-        <p><strong>Passport:</strong> $passportPath</p>
-        <p><strong>Qualifications Files:</strong> $qualificationsString</p>
-    ";
+        $adminMail->isHTML(true);
+        $adminMail->Subject = 'New Application Submitted';
+        $adminMail->Body = "
+            <h3>New Application Details</h3>
+            <p><strong>First Name:</strong> $firstname</p>
+            <p><strong>Middle Name:</strong> $middlename</p>
+            <p><strong>Last Name:</strong> $lastname</p>
+            <p><strong>Email:</strong> $email</p>
+            <p><strong>Phone Number:</strong> $phonenumber</p>
+            <p><strong>Sex:</strong> $sex</p>
+            <p><strong>Marital Status:</strong> $maritalstatus</p>
+            <p><strong>Date of Birth:</strong> $dob</p>
+            <p><strong>Age:</strong> $age</p>
+            <p><strong>Address:</strong> $address</p>
+            <p><strong>City:</strong> $city</p>
+            <p><strong>State:</strong> $state</p>
+            <p><strong>Country:</strong> $country</p>
+            <p><strong>Postal Code:</strong> $postalcode</p>
+            <p><strong>Program:</strong> $program</p>
+            <p><strong>Certification:</strong> $certification</p>
+            <p><strong>Bachelor's Degree:</strong> $bachelors</p>
+            <p><strong>BTh Specialization:</strong> $bThSpecialization</p>
+            <p><strong>BMin Specialization:</strong> $bMinSpecialization</p>
+            <p><strong>BDiv Specialization:</strong> $bDivSpecialization</p>
+            <p><strong>Master's Degree:</strong> $masters</p>
+            <p><strong>MTh Specialization:</strong> $mThSpecialization</p>
+            <p><strong>MMin Specialization:</strong> $mMinSpecialization</p>
+            <p><strong>MDiv Specialization:</strong> $mDivSpecialization</p>
+            <p><strong>Doctorate Degree:</strong> $doctors</p>
+            <p><strong>DTh Specialization:</strong> $dThSpecialization</p>
+            <p><strong>DMin Specialization:</strong> $dMinSpecialization</p>
+            <p><strong>DDiv Specialization:</strong> $dDivSpecialization</p>
+            <p><strong>Qualifications:</strong> $qualificationsText</p>
+            <p><strong>Passport:</strong> $passportPath</p>
+            <p><strong>Qualifications Files:</strong> $qualificationsString</p>
+        ";
+
+        // Attach the passport file
+        $adminMail->addAttachment($passportPath);
+
+        // Attach each qualifications file
+        foreach ($qualificationsPaths as $qualPath) {
+            $adminMail->addAttachment($qualPath);
+        }
+
         $adminMail->send();
     } catch (Exception $e) {
         echo "Error sending email to admin: {$adminMail->ErrorInfo}";

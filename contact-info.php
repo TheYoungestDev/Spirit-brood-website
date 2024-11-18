@@ -24,9 +24,10 @@
                         <b><h3 class="featured-heading-textp" style="font-weight: 900;">Contact Form:</h3></b>
                         <p class="featured-heading-textp" style="margin-top: -15px;">Fill out our contact form to request more information.</p> <br>
                         <address class="featured-heading-textp"><b>Mailing Address:</b> <br>
-                            <span>1309 Coffeen Avenue STE 1200, <br>
-                                Sheridan, WY, 82801,<br>
-                                United States<br></span> <br />
+                            <span>7901 4th St N STE 300 <br>
+                                St. Petersburg, FL 33702<br>
+                                <!-- United States -->
+                                <br></span> <br />
                                 <b>Email:</b><a href="mailto:info@spiritbrood.org" style="color: #0b0b0b;"> info@spiritbrood.org</a><br><br>
                             <b> Contact (SMS and WhatsApp only):</b><br>
                             <span style="font-weight: 500;">USA:</span> <a href="https://wa.link/jqe7gi">  +1 332-777-3962 </a> <br>

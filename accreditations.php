@@ -22,7 +22,7 @@
                         <!-- <h3 class="featured-heading-text2">Certified Member of AICCS <br>
                             Association of Independent Christian Colleges and Seminaries</h3> -->
                         <p class="featured-heading-textp">Spirit Brood Theological Seminary operates under the legal framework provided by the State of
-                            Florida, where we are duly incorporated as a Religious Institution. Florida law permits us to offer
+                            Florida, where we are duly incorporated as a Religious Educational Institution. Florida law permits us to offer
                                 educational programs <b> exclusively designed to prepare students for religious vocations as
                                    ministers, professionals, or laypersons </b>  in the areas of ministry, counseling, theology, education,
                                         administration, music, fine arts, media communications, and social work.                          
